@@ -49,8 +49,8 @@ export default function Program() {
                     <div className="flex flex-col gap-1 sm:gap-2">
                         <h3 className="text-xl sm:text-2xl font-medium text-primary-600">Baby Sitter</h3>
                         <p className="text-sm sm:text-base">
-                            Pelatihan ini mengajarkan keterampilan membersihkan rumah, mencuci, menyetrika, dan menata ruangan sesuai standar
-                            internasional.
+                        Peserta dilatih untuk merawat bayi dan anak, mencakup pemenuhan kebutuhan dasar, keselamatan, serta komunikasi yang 
+                        baik dengan keluarga majikan.
                         </p>
                     </div>
                 </div>
@@ -73,8 +73,8 @@ export default function Program() {
                     <div className="flex flex-col gap-1 sm:gap-2">
                         <h3 className="text-xl sm:text-2xl font-medium text-primary-600">Care Taker</h3>
                         <p className="text-sm sm:text-base">
-                            Pelatihan ini mengajarkan keterampilan membersihkan rumah, mencuci, menyetrika, dan menata ruangan sesuai standar
-                            internasional.
+                        Pelatihan ini mempersiapkan peserta dalam memberikan perawatan dasar bagi lansia atau individu berkebutuhan khusus, 
+                        termasuk bantuan medis dan dukungan emosional.
                         </p>
                     </div>
                 </div>
