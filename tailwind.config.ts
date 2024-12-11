@@ -19,6 +19,9 @@ const config: Config = {
                     '950': '#461404',
                 },
             },
+            backgroundImage: {
+                'primary': "url('/assets/img/singapura.jpeg')",
+            },
         },
     },
     plugins: [],

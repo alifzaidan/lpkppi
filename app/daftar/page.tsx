@@ -3,6 +3,7 @@
 import Header from '@/components/Header';
 import { FormEvent, useState } from 'react';
 
+
 export default function page() {
     const [nama, setNama] = useState('');
     const [nik, setNik] = useState('');
@@ -19,6 +20,7 @@ export default function page() {
     const [skema, setSkema] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -51,7 +53,7 @@ export default function page() {
         } catch (e) {
             console.error(e);
         } finally {
-            alert('Data berhasil dikirim');
+            setShowPopup(true); // Tampilkan popup
             setIsLoading(false);
         }
 
@@ -234,7 +236,7 @@ export default function page() {
                                         <option value="" disabled selected>
                                             Pilih BLK
                                         </option>
-                                        <option value="LPK Pejuan Pertiwi">LPK Pejuan Pertiwi</option>
+                                        <option value="LPK Pejuang Pertiwi">LPK Pejuang Pertiwi</option>
                                         <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
@@ -373,6 +375,29 @@ export default function page() {
                     </div>
                 </div>
             </section>
+                {showPopup && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                    {/* Popup Container */}
+                    <div className="bg-white w-11/12 max-w-lg rounded-lg shadow-xl transform transition-all scale-100 sm:scale-110">
+                        {/* Header */}
+                        <div className="bg-primary-600 text-white p-4 rounded-t-lg">
+                            <h2 className="text-lg font-bold">Selamat</h2>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-6 text-center">
+                            <p className="text-gray-700 text-lg mb-6">Data berhasil dikirim!</p>
+                            <button
+                                className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow-md hover:bg-primary-700 transition duration-300"
+                                onClick={() => setShowPopup(false)} // Sembunyikan popup
+                            >
+                                Tutup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </>
     );
 }
