@@ -13,12 +13,7 @@ export default function Header() {
                     <div className="flex-1 md:flex md:items-center md:gap-12">
                         <a className="block text-primary-600" href="/">
                             <span className="sr-only">Home</span>
-                            <svg className="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78..."
-                                    fill="currentColor"
-                                />
-                            </svg>
+                            <img src="/assets/img/logo lpkppi.png" alt="Logo" className="h-12" />
                         </a>
                     </div>
 
