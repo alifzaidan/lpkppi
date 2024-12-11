@@ -11,7 +11,7 @@ export default function Header() {
             <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <div className="flex-1 md:flex md:items-center md:gap-12">
-                        <a className="block text-primary-600" href="#">
+                        <a className="block text-primary-600" href="/">
                             <span className="sr-only">Home</span>
                             <svg className="h-8" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -26,7 +26,7 @@ export default function Header() {
                         <nav aria-label="Global" className="hidden md:block">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
+                                    <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
                                         Home
                                     </a>
                                 </li>
@@ -55,7 +55,7 @@ export default function Header() {
                         >
                             <ul className="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 md:p-0 text-sm">
                                 <li className="w-full">
-                                    <Link className="text-gray-500 transition hover:text-primary-500/75" href="#">
+                                    <Link className="text-gray-500 transition hover:text-primary-500/75" href="/">
                                         <p className="w-full">Home</p>
                                     </Link>
                                 </li>
@@ -79,7 +79,10 @@ export default function Header() {
 
                         <div className="flex items-center gap-4">
                             <div className="sm:flex sm:gap-4">
-                                <a className="rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow" href="/">
+                                <a
+                                    className="rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto transition"
+                                    href="/daftar"
+                                >
                                     DAFTAR ONLINE
                                 </a>
                             </div>

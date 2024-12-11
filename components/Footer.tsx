@@ -50,7 +50,7 @@ export default function Footer() {
                                 </li>
 
                                 <li>
-                                    <a className="text-gray-700 transition hover:text-primary-500/75" href="/">
+                                    <a className="text-gray-700 transition hover:text-primary-500/75" href="/daftar">
                                         Daftar Program
                                     </a>
                                 </li>
