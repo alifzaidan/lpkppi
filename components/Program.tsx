@@ -44,7 +44,7 @@ export default function Program() {
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 mt-8 pt-2">
                 <div className="flex gap-5">
                     <div className="flex-shrink-0 h-16 w-16 p-2 bg-primary-600 rounded-full">
-                        <Image src="/assets/img/housekeeper.png" alt="Baby Sitter" height={100} width={100} />
+                        <Image src="/assets/img/babysitter.png" alt="Baby Sitter" height={100} width={100} />
                     </div>
                     <div className="flex flex-col gap-1 sm:gap-2">
                         <h3 className="text-xl sm:text-2xl font-medium text-primary-600">Baby Sitter</h3>
@@ -56,7 +56,7 @@ export default function Program() {
                 </div>
                 <div className="flex gap-5">
                     <div className="flex-shrink-0 h-16 w-16 p-2 bg-primary-600 rounded-full">
-                        <Image src="/assets/img/babysitter.png" alt="House Keeper" height={100} width={100} />
+                        <Image src="/assets/img/housekeeper.png" alt="House Keeper" height={100} width={100} />
                     </div>
                     <div className="flex flex-col gap-1 sm:gap-2">
                         <h3 className="text-xl sm:text-2xl font-medium text-primary-600">House Keeper</h3>
