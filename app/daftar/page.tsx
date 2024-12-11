@@ -1,10 +1,78 @@
+'use client';
+
 import Header from '@/components/Header';
+import { FormEvent, useState } from 'react';
 
 export default function page() {
+    const [nama, setNama] = useState('');
+    const [nik, setNik] = useState('');
+    const [tempatLahir, setTempatLahir] = useState('');
+    const [tanggalLahir, setTanggalLahir] = useState('');
+    const [jenisKelamin, setJenisKelamin] = useState('');
+    const [tempatTinggal, setTempatTinggal] = useState('');
+    const [blk, setBlk] = useState('');
+    const [email, setEmail] = useState('');
+    const [pendidikan, setPendidikan] = useState('');
+    const [tanggalUji, setTanggalUji] = useState('');
+    const [tujuan, setTujuan] = useState('');
+    const [namaPt, setNamaPt] = useState('');
+    const [skema, setSkema] = useState('');
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        const form = {
+            nama,
+            nik,
+            tempatLahir,
+            tanggalLahir,
+            jenisKelamin,
+            tempatTinggal,
+            blk,
+            email,
+            pendidikan,
+            tanggalUji,
+            tujuan,
+            namaPt,
+            skema,
+        };
+
+        try {
+            await fetch('/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
+        } catch (e) {
+            console.error(e);
+        } finally {
+            alert('Data berhasil dikirim');
+            setIsLoading(false);
+        }
+
+        setNama('');
+        setNik('');
+        setTempatLahir('');
+        setTanggalLahir('');
+        setJenisKelamin('');
+        setTempatTinggal('');
+        setBlk('');
+        setEmail('');
+        setPendidikan('');
+        setTanggalUji('');
+        setTujuan('');
+        setNamaPt('');
+        setSkema('');
+    };
+
     return (
         <>
             <Header />
-
             <section className="bg-primary-600">
                 <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
                     <nav aria-label="Breadcrumb" className="mb-4">
@@ -42,12 +110,13 @@ export default function page() {
                             </li>
                         </ol>
                     </nav>
+
                     <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                         <div className="inline-block">
                             <h2 className="inline text-xl sm:text-3xl font-bold mb-4">Lengkapi Data Diri Anda</h2>
                             <div className="mt-4 h-1 w-full bg-primary-600 rounded-full"></div>
                         </div>
-                        <form action="#" className=" mt-6">
+                        <form onSubmit={handleSubmit} className=" mt-6">
                             <div className="space-y-4">
                                 <div>
                                     <label htmlFor="nama" className="block text-sm sm:text-base font-medium text-gray-700">
@@ -59,6 +128,8 @@ export default function page() {
                                         name="nama"
                                         placeholder="Tulis nama lengkap Anda"
                                         className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                        value={nama}
+                                        onChange={(e) => setNama(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -73,6 +144,8 @@ export default function page() {
                                         name="nik"
                                         placeholder="Tulis NIK Anda"
                                         className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                        value={nik}
+                                        onChange={(e) => setNik(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -88,6 +161,8 @@ export default function page() {
                                             name="tempat-lahir"
                                             placeholder="Tulis tempat lahir Anda"
                                             className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                            value={tempatLahir}
+                                            onChange={(e) => setTempatLahir(e.target.value)}
                                             required
                                         />
                                     </div>
@@ -101,6 +176,8 @@ export default function page() {
                                             id="tanggal-lahir"
                                             name="tanggal-lahir"
                                             className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                            value={tanggalLahir}
+                                            onChange={(e) => setTanggalLahir(e.target.value)}
                                             required
                                         />
                                     </div>
@@ -113,6 +190,8 @@ export default function page() {
                                             name="jenis-kelamin"
                                             id="jenis-kelamin"
                                             className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                            value={jenisKelamin}
+                                            onChange={(e) => setJenisKelamin(e.target.value)}
                                             required
                                         >
                                             <option value="" disabled selected>
@@ -134,6 +213,8 @@ export default function page() {
                                         placeholder="Tulis alamat Anda"
                                         id="tempat-tinggal"
                                         name="tempat-tinggal"
+                                        value={tempatTinggal}
+                                        onChange={(e) => setTempatTinggal(e.target.value)}
                                         required
                                     ></textarea>
                                 </div>
@@ -146,6 +227,8 @@ export default function page() {
                                         name="blk"
                                         id="blk"
                                         className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                        value={blk}
+                                        onChange={(e) => setBlk(e.target.value)}
                                         required
                                     >
                                         <option value="" disabled selected>
@@ -166,6 +249,8 @@ export default function page() {
                                         name="email"
                                         placeholder="Tulis email Anda"
                                         className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -178,6 +263,8 @@ export default function page() {
                                         name="pendidikan"
                                         id="pendidikan"
                                         className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                        value={pendidikan}
+                                        onChange={(e) => setPendidikan(e.target.value)}
                                         required
                                     >
                                         <option value="" disabled selected>
@@ -198,6 +285,8 @@ export default function page() {
                                         id="tanggal-uji"
                                         name="tanggal-uji"
                                         className="mt-1 p-3 w-full rounded-md border border-gray-200 shadow-sm sm:text-sm"
+                                        value={tanggalUji}
+                                        onChange={(e) => setTanggalUji(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -210,6 +299,8 @@ export default function page() {
                                         name="tujuan"
                                         id="tujuan"
                                         className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                        value={tujuan}
+                                        onChange={(e) => setTujuan(e.target.value)}
                                         required
                                     >
                                         <option value="" disabled selected>
@@ -230,6 +321,8 @@ export default function page() {
                                         name="nama-pt"
                                         id="nama-pt"
                                         className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                        value={namaPt}
+                                        onChange={(e) => setNamaPt(e.target.value)}
                                         required
                                     >
                                         <option value="" disabled selected>
@@ -253,6 +346,8 @@ export default function page() {
                                         name="skema"
                                         id="skema"
                                         className="mt-1.5 p-3 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                                        value={skema}
+                                        onChange={(e) => setSkema(e.target.value)}
                                         required
                                     >
                                         <option value="" disabled selected>
@@ -268,9 +363,10 @@ export default function page() {
                             <div className="mt-8">
                                 <button
                                     type="submit"
+                                    disabled={isLoading}
                                     className="inline-block w-full rounded-full bg-primary-600 px-8 py-3 font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring active:bg-primary-500 sm:w-auto transition"
                                 >
-                                    KIRIM
+                                    {isLoading ? 'Sedang mengirim...' : 'KIRIM'}
                                 </button>
                             </div>
                         </form>
